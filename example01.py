@@ -7,8 +7,12 @@ Lincencia: Creative Commons
 '''
 from cReadFeed import readFeed
 def main():
-	feed = readFeed('http://www.tutorialdeprogramacion.com/feeds/posts/default', 'atom') 
-	''' Descargando y estructurando el Feed '''
+	feed = readFeed('http://www.tutorialdeprogramacion.com/feeds/posts/default', 'atom')
+	'''Carga todas las variables nesesarias para la funcionalidad de la libreria'''
+
+	feed.startDownload()	
+	''' Descargando y estructurando el Feed 
+		raise DownloadError: error de descarga del feed'''
 	feed.getSource()
 	''' Retorna el codigo fuente del Feed en texto plano'''
 	feed.getChannelInfo()

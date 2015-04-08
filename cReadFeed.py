@@ -32,9 +32,8 @@ class readFeed:
 		try:
 			f = urllib2.urlopen(self.__url)
 			self.__sourceCode = f.read()
-			return 1
 		except:
-			return 0
+			raise Exception('DownloadError')
 
 	def __getContentFeed(self):
 		#Traduce las variables del feed a listas
@@ -70,6 +69,10 @@ class readFeed:
 	def getEntry(self, idEntry):
 		return self.__entries[idEntry]
 
+	def startDownload(self):
+		self.__downloadFeed()			
+		self.__getContentFeed()
+
 	def __add__(self, rF):
 		for entry in rF.getEntries():
 			self.__entries.append(entry)
@@ -81,9 +84,3 @@ class readFeed:
 		self.__sourceCode = ''
 		self.__chanelInfo = {'title': '', 'description': '', 'link': '', 'update': '', 'pubDate': ''}
 		self.__entries = []
-		if(not self.__downloadFeed()):
-			print 'Error al descargar el codigo'
-			print 'Aborando ejecucion'
-			sys.exit()
-		self.__getContentFeed()
-		
