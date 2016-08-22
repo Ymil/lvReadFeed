@@ -1,14 +1,14 @@
 #!/usr/bin/python
 '''
 Libreria: LV-readFeed
-Version: 0.1
+Version: 0.2
 Autor: Lautaro Linquiman
 Lincencia: Creative Commons
 '''
 import os
 import sys
 if not (2,7) == sys.version_info[0:2]:
-	print 'Vercion para python 2.7'
+	print 'Version para python 2.7'
 	print 'Abortando ejecucion'
 	sys.exit()
 
